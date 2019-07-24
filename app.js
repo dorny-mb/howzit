@@ -1,10 +1,15 @@
 const express = require('express');
 const ejsLayout = require('express-ejs-layouts');
 const ejs = require('ejs');
+const path = require('path');
 
 const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http)
+
+
+// static folder
+app.use('/public',express.static(path.join(__dirname,'src')))
 
 
 // middleware init
